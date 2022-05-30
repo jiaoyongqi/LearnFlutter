@@ -1,21 +1,6 @@
 
 import 'package:flutter/material.dart';
 
-// void main() {
-//   runApp(
-//     const Center(
-//       child: Text(
-//         "hello World",ww
-//         textDirection: TextDirection.ltr,
-//         style: TextStyle(
-//           fontSize: 30,
-//           color: Colors.orange
-//         ),
-//       ),
-//     )
-//   );
-// }
-
 void main() {
   runApp(MyApp());
 }
@@ -24,100 +9,56 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title:"Hello World",
-      home: Scaffold(
+      home:Scaffold (
         appBar: AppBar(
-          title: const Text('我是标题'),
+          title: Text("CODERWHY"),
         ),
-        body: ContentWidget(),
-        floatingActionButton: FloatingActionButton(
-          child:Icon(Icons.add),
-          onPressed:() {
-            print("监听floatingActionButton");
-          },
-        ),
-        // appBar: AppBar(
-        //   title: const Text("Example title"),
-        // ),
+        body: HomeContent(),
       ),
     );
   }
 }
 
-class ContentWidget extends StatefulWidget {
+class HomeContent extends StatelessWidget {
   @override
-  State<StatefulWidget> createState() {
-    return ContentWidgetState();
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: EdgeInsets.all(10),
+        child:ListView(
+          children: [
+            ProductItem("Apple1","Macbook Product1","http://www.baidu.com/img/bdlogo.png"),
+            ProductItem("Apple2","Macbook Product2","http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png"),
+            ProductItem("Apple3","Macbook Product3","http://www.baidu.com/img/bdlogo.png"),
+          ],
+        )
+    );
   }
 }
 
-class ContentWidgetState extends State<ContentWidget> {
-  int counter = 0;
+class ProductItem extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final String imgurl;  
+
+  ProductItem(this.title,this.subtitle,this.imgurl);
 
   @override
   Widget build(BuildContext context) {
-    return  Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                RaisedButton(
-                    onPressed: () {
-                        print("监听按钮的点击");
-                        print(counter);
-                        setState(() {
-                          counter++;
-                        });
-                    },
-                    child: Text("计数+1"),
-                ),
-                RaisedButton(
-                  onPressed: () {
-                    print("监听按钮的点击");
-                    print(counter);
-                    setState(() {
-                      counter--;
-                    });
-                  },
-                  child: Text("计数-1"),
-                ),
-              ],
-            ),
-            Text("当前计数:$counter",style: TextStyle(fontSize:25),),
-          ],
-        ),
-      );
+    return Container(
+      padding: EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        border: Border.all(
+          width: 3
+        )
+      ),
+      child: Column(
+        children: [
+          Text(this.title,style: TextStyle(fontSize: 24)),
+          Text(this.subtitle,style: TextStyle(fontSize: 18)),
+          SizedBox(height: 10),
+          Image.network(this.imgurl)
+        ],
+      ),
+    );
   }
-
-}
-
-//不能实现
-// class ContentWidget1 extends StatelessWidget {
-//
-//   final int counter = 0;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//       return  Center(
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             RaisedButton(
-//                 onPressed: () {
-//                     print("监听按钮的点击");
-//                     counter++;
-//                 },
-//                 child: Text("计数+1"),
-//             ),
-//             Text("当前计数:$counter",style: TextStyle(fontSize:25),),
-//           ],
-//         ),
-//       );
-//   }
-// }
-
-void test(String name) {
-
 }
