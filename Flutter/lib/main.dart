@@ -1,21 +1,6 @@
 
 import 'package:flutter/material.dart';
 
-// void main() {
-//   runApp(
-//     const Center(
-//       child: Text(
-//         "hello World",ww
-//         textDirection: TextDirection.ltr,
-//         style: TextStyle(
-//           fontSize: 30,
-//           color: Colors.orange
-//         ),
-//       ),
-//     )
-//   );
-// }
-
 void main() {
   runApp(MyApp());
 }
@@ -30,9 +15,6 @@ class MyApp extends StatelessWidget {
           title: const Text('我是标题'),
         ),
         body: ContentWidget(),
-        // appBar: AppBar(
-        //   title: const Text("Example title"),
-        // ),
       ),
     );
   }
@@ -41,19 +23,16 @@ class MyApp extends StatelessWidget {
 class ContentWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-      return const Center(
-        child: Text(
-          "hello World",
-          textDirection: TextDirection.ltr,
-          style: TextStyle(
-              fontSize: 30,
-              color: Colors.orange
-          ),
-        ),
-      );
+    return Text(
+      "《赠汪伦》李白 \n李白乘舟将欲行，忽闻岸上踏歌声。\n桃花潭水深千尺，不及汪伦送我情。",
+      style: TextStyle(
+        fontSize: 30,
+        color: Colors.orange,
+      ),
+      textAlign: TextAlign.center,
+      // maxLines: 2,
+      // overflow: TextOverflow.ellipsis,
+    );
   }
 }
 
-void test(String name) {
-
-}
