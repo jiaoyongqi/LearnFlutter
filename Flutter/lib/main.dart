@@ -23,6 +23,34 @@ class MyApp extends StatelessWidget {
 class ContentWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    return Text.rich(
+      TextSpan(
+        children: [
+         TextSpan(
+             text:"《赠汪伦》",
+             style: TextStyle(
+                 fontSize: 30,
+                 fontWeight: FontWeight.bold
+             )
+         ),
+          TextSpan(
+            text:"李白",
+            style: TextStyle(fontSize: 18),
+          ),
+          TextSpan(
+            text: "\n李白乘舟将欲行，忽闻岸上踏歌声。\n桃花潭水深千尺，不及汪伦送我情。",
+            style: TextStyle(fontSize: 30,color: Colors.purple),
+          ),
+        ]
+      ),
+      textAlign: TextAlign.center,
+    );
+  }
+}
+
+class TextDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return Text(
       "《赠汪伦》李白 \n李白乘舟将欲行，忽闻岸上踏歌声。\n桃花潭水深千尺，不及汪伦送我情。",
       style: TextStyle(
