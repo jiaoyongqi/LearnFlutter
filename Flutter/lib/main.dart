@@ -24,6 +24,60 @@ class ContentWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(16),
+          child: Image.network(
+            "https://pic.ntimg.cn/file/20180820/27374389_124441132000_2.jpg",
+            width: 150,
+            height: 150,
+          ),
+        )
+    );
+  }
+}
+
+class CircleImageDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ClipOval(
+        child: Image.network(
+          "https://pic.ntimg.cn/file/20180820/27374389_124441132000_2.jpg",
+          width: 150,
+          height: 150,
+        )
+    );
+  }
+}
+
+class AssetsImageDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset("assets/images/bdlogo.png");
+  }
+}
+
+class NetWorkImageDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        width: 300,
+        height: 300,
+        color: Colors.red,
+        child: Image.network(
+          "http://www.baidu.com/img/bdlogo.png",
+          // fit:BoxFit.cover
+          repeat: ImageRepeat.repeatY ,
+        ),
+      ),
+    );
+  }
+}
+
+class CustomButtonDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return  Center(
       child: RaisedButton(
         color: Colors.red,
         child: Row(
@@ -36,7 +90,7 @@ class ContentWidget extends StatelessWidget {
         ),
         onPressed: () => print("按钮发生点击"),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10)
+            borderRadius: BorderRadius.circular(10)
         ),
       ),
     );
